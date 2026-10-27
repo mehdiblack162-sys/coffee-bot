@@ -1,5 +1,9 @@
 {
-  "shop": { "name": "Spresso Kit", "city": "فاس", "hours": "من 10:00 صباحا حتى 19:00" },
+  "shop": {
+    "name": "Spresso Kit",
+    "city": "فاس",
+    "hours": "من 10:00 صباحا حتى 19:00"
+  },
   "delivery": {
     "ar": "التوصيل متاح. كلم واحد من الفريق (صيفط *5*) باش يعطيك الثمن والمدة حسب مدينتك.",
     "fr": "Livraison disponible. Contactez un conseiller (envoyez *5*) pour le prix et le délai selon votre ville."
@@ -9,25 +13,50 @@
     "fr": "Qualité et compatibilité garanties. Demandez à un conseiller (envoyez *5*) la durée de garantie par pièce."
   },
   "products": [
-    { "id": 1, "name": "مضخة نحاسية (Pompe à flux en laiton)", "fr": "Pompe à flux en laiton", "price": 530,
+    {
+      "id": 1,
+      "name": "Pomp 530",
+      "fr": "Pomp 530",
+      "price": 530,
       "desc": "مضخة من النحاس بجوان مطاطي أسود، تحكم دقيق فالتدفق. متوافقة مع OEM وLa Cimbali.",
       "descFr": "Pompe en laiton avec joint caoutchouc noir, contrôle de flux précis. Compatible OEM et La Cimbali.",
-      "keywords": ["pompe", "pomp", "pump", "مضخة", "بومبة", "pompa"] },
-    { "id": 2, "name": "صمام كهربائي للتعبئة (Électrovanne)", "fr": "Électrovanne (remplissage)", "price": 250,
+      "keywords": ["pompe", "pomp", "pump", "مضخة", "بومبة", "pompa"]
+    },
+    {
+      "id": 2,
+      "name": "Electrovane romlesage",
+      "fr": "Electrovane romlesage",
+      "price": 250,
       "desc": "صمام كهربائي Parker جودة عالية 220-230V، بجسم نحاسي وبوبينة سوداء. متوافق مع Nuova Simonelli.",
       "descFr": "Électrovanne Parker haute qualité 220-230V, corps en laiton et bobine noire. Compatible Nuova Simonelli.",
-      "keywords": ["electrovanne", "électrovanne", "electrovane", "electrovan", "remplissage", "romlesage", "parker", "vanne", "صمام", "ايليكتروفان", "سولونويد"] },
-    { "id": 3, "name": "وحدة تحكم إلكترونية Gicar", "fr": "Module de contrôle Gicar", "price": 250,
+      "keywords": ["electrovanne", "électrovanne", "electrovane", "electrovan", "remplissage", "romlesage", "parker", "vanne", "صمام", "ايليكتروفان", "سولونويد"]
+    },
+    {
+      "id": 3,
+      "name": "Jikar",
+      "fr": "Jikar",
+      "price": 250,
       "desc": "وحدة تحكم إلكترونية Gicar للجرعات وتسيير الرؤوس. متوافقة مع La Cimbali.",
       "descFr": "Module de contrôle électronique Gicar pour dosage et gestion des groupes. Compatible La Cimbali.",
-      "keywords": ["gicar", "jikar", "jicar", "module", "جيكار", "جيكر", "électronique", "electronique"] },
-    { "id": 4, "name": "مقبض حامل الفلتر كروم (Poignée porte-filtre)", "fr": "Poignée porte-filtre chrome", "price": 130,
+      "keywords": ["gicar", "jikar", "jicar", "module", "جيكار", "جيكر", "électronique", "electronique"]
+    },
+    {
+      "id": 4,
+      "name": "Polte filter",
+      "fr": "Polte filter",
+      "price": 130,
       "desc": "مقبض احترافي من الكروم بيد سوداء مريحة، لمكينات E61 وLa Marzocco.",
       "descFr": "Poignée de porte-filtre professionnelle en chrome, manche ergonomique noir. Pour E61 et La Marzocco.",
-      "keywords": ["poignée", "poignee", "porte-filtre", "porte filtre", "portefiltre", "porte filter", "polte", "polte filter", "porte-filter", "e61", "مقبض", "بورت فيلتر"] },
-    { "id": 5, "name": "سلة فلتر ستانلس (Panier filtre)", "fr": "Panier filtre inox", "price": 20,
-      "desc": "سلة فلتر مثقبة من الستانلس ستيل بثقوب دقيقة، عالمية الاستعمال ومتوافقة مع La Marzocco.",
-      "descFr": "Panier filtre perforé en acier inoxydable, micro-perforations précises. Universel, compatible La Marzocco.",
-      "keywords": ["panier", "filtre", "filter", "1,5", "1.5", "سلة", "فلتر"] }
+      "keywords": ["poignée", "poignee", "porte-filtre", "porte filtre", "portefiltre", "porte filter", "polte", "polte filter", "porte-filter", "e61", "مقبض", "بورت فيلتر"]
+    },
+    {
+      "id": 5,
+      "name": "Filter 1,5",
+      "fr": "Filter 1,5",
+      "price": 20,
+      "desc": "سلة فلتر مثقبة من الستانلس ستيل لكاس واحد (1,5)، بثقوب دقيقة، عالمية الاستعمال ومتوافقة مع La Marzocco.",
+      "descFr": "Panier filtre inox 1,5 pour 1 tasse, micro-perforations précises. Universel, compatible La Marzocco.",
+      "keywords": ["panier", "filtre", "filter", "1,5", "1.5", "سلة", "فلتر"]
+    }
   ]
 }
