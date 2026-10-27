@@ -15,8 +15,43 @@ async function send(to, body) {
   if (!res.ok) console.error('خطأ فالإرسال:', res.status, await res.text());
 }
 
+// ديمو ويب: صفحة دردشة كتخدم بنفس البوت (بلا واتساب)
+const fs = require('fs');
+const path = require('path');
+const hits = new Map(); // حماية بسيطة: 20 رسالة فالدقيقة لكل IP
+function limited(ip) {
+  const now = Date.now();
+  const a = (hits.get(ip) || []).filter((t) => now - t < 60000);
+  a.push(now); hits.set(ip, a);
+  return a.length > 20;
+}
+
+async function demoChat(req, res) {
+  let raw = ''; for await (const c of req) { raw += c; if (raw.length > 5000) break; }
+  const ip = req.headers['x-forwarded-for']?.split(',')[0].trim() || req.socket.remoteAddress;
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  if (limited(ip)) { res.writeHead(429); return res.end(JSON.stringify({ replies: ['بزاف د الرسائل، تسنا دقيقة 🙏'] })); }
+  try {
+    const { sid, text } = JSON.parse(raw);
+    const id = 'demo-' + String(sid || 'x').replace(/[^a-z0-9]/gi, '').slice(0, 20);
+    const msg = String(text || '').slice(0, 500);
+    const out = handle(id, msg);
+    const replies = [...out.replies];
+    if (out.needsAI) {
+      try { replies.push((await ai.reply(id, msg)).text); }
+      catch (e) { replies.push(...fallbackReplies(id)); }
+    }
+    res.writeHead(200); res.end(JSON.stringify({ replies, notified: !!out.notifyOwner }));
+  } catch (e) { res.writeHead(400); res.end(JSON.stringify({ replies: ['خطأ، عاود.'] })); }
+}
+
 http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://x');
+  if (url.pathname === '/demo' && req.method === 'GET') {
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+    return res.end(fs.readFileSync(path.join(__dirname, 'demo.html')));
+  }
+  if (url.pathname === '/demo/chat' && req.method === 'POST') return demoChat(req, res);
   if (url.pathname !== '/webhook') { res.writeHead(200); return res.end('Bot is running'); }
 
   // 1) التحقق ديال Meta كي تسجل الـ webhook
